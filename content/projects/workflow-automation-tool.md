@@ -10,37 +10,34 @@ stack: ["Python", "YAML workflow specs", "Run-history store"]
 
 ## Overview
 
-Started as three scripts and a cron job; became a small tool that chains
-repetitive steps — fetch, transform, notify — into declarative workflows,
-so I stop doing them by hand every time something changes.
+Started as three scripts and a cron job. Turned into a small tool that chains
+repetitive steps — fetch, transform, notify — into workflows I define once, so
+I stop doing them by hand every time something changes.
 
 ## The problem
 
-Every one of the three original scripts had slightly different logging,
-slightly different failure handling, and zero shared history. When one
-silently stopped working, I found out days later. The scripts weren't the
-problem — the lack of a shared, observable way to run them was.
+Each of the three original scripts logged things a little differently, handled
+failures a little differently, and shared zero history. When one quietly
+stopped working, I'd find out days later. The scripts weren't the problem —
+the lack of one shared, visible way to run them was.
 
-## Approach
+## How it works
 
-- Workflows are defined declaratively in YAML: a list of steps, each a
+- Workflows are written in YAML: a list of steps, each one a
   fetch/transform/notify action, run in order.
-- Every run is logged with what ran, when, and the outcome of each step —
-  not just a final success/failure, so a partial failure is diagnosable
-  without re-running anything.
-- Failures notify explicitly rather than failing silently into a log file
-  nobody reads.
+- Every run logs what ran, when, and how each step turned out — not just
+  pass/fail, so a partial failure is easy to trace without re-running
+  everything.
+- Failures actually tell you instead of dying quietly in a log nobody reads.
 
+## What I learned
 
-## Challenges & lessons
-
-Automation you can't observe is automation you can't trust. The interesting
-work here wasn't chaining the steps together — that part's easy — it was
-building the "what ran, when, and why" view, which ended up being about half
-the actual project. A workflow that fails and tells you exactly which step
-and why is worth more than a workflow that rarely fails but goes silent when
-it does.
+Automation you can't watch is automation you can't trust. The interesting work
+wasn't chaining steps together — that part's easy — it was building the "what
+ran, when, and why" view, which ended up being about half the project. A
+workflow that fails and tells you exactly which step and why beats one that
+rarely fails but goes silent when it does.
 
 ## Status
 
-Personal project, in everyday use for my own recurring tasks.
+Personal project, I use it every day for my own recurring tasks.

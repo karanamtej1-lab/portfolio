@@ -4,36 +4,33 @@ hideBackToTop: true
 hidePagination: true
 ---
 
-I'm Tej, a junior at Wakeland High School (class of 2027) building toward a
-future in computer science. I like taking a project from "wouldn't it be
-cool if" all the way to something that actually runs — which usually means
-learning whatever the project demands: Python for trading systems, C++ and
-Java for coursework and fundamentals, and lately a lot of prompt-and-pipeline
-work with AI APIs.
+I'm Tej — a junior at Wakeland High School, class of 2027, and I'm all in on
+computer science. 👋🏾
 
-Things I've built recently:
+I like building things that actually run. Usually that means picking up
+whatever the project needs as I go — Python for trading stuff, C++ and Java
+for coursework and the fundamentals, and lately a ton of AI API and pipeline
+work.
 
-- **An AI vehicle-inspection web app** — upload listing photos of a used car,
-  get condition flags with evidence, a price verdict against comparables, and
-  the questions to ask the seller.
-- **An automated trading system** — Python, backtesting first, live paper
-  trading second, humility throughout.
-- **Motiq** — a productivity app; see [the post about its hidden-tab
-  bug](/posts/motiq-hidden-tab-bug/) for the kind of debugging it taught me.
+A few things I've built lately:
+
+- **An AI used-car inspector** — upload photos of a car listing and get
+  condition flags with real evidence, a price check against comparable
+  listings, and the exact questions to ask the seller.
+- **An automated trading system** — Python, backtesting first, paper trading
+  second, humility the whole way through.
+- **Nightwatch** — a time tracker. There's [a post about a bug in
+  it](/posts/nightwatch-hidden-tab-bug/) that taught me a lot about how
+  browsers actually work.
 
 ## Outside of code
 
-- **Boxing & Muay Thai** — I train striking regularly; it's the one part of
-  my day that has nothing to do with a screen, and I think that's exactly why
-  it keeps me sane.
-- **Music** — always something playing while I work; discovering new stuff is
-  half the fun.
-- **Reading** — a mix of fiction and the occasional deep technical rabbit
-  hole when a project drags me into one.
-- **Food** — eating good food, and slowly getting better at cooking it
-  myself.
+- **Anime** — always got something on my watchlist. Main way I unwind.
+- **Drawing** — I sketch for fun, on and off.
+- **Instruments** — piano, guitar, viola, and trombone.
+- **The gym** — the part of my day that has nothing to do with a screen.
 
 ## Elsewhere
 
-Find me on [GitHub](https://github.com/TejKaranam101) or
-[LinkedIn](https://www.linkedin.com/in/tejkaranam), or reach out by email.
+You can find me on [GitHub](https://github.com/TejKaranam101) or
+[LinkedIn](https://www.linkedin.com/in/tejkaranam), or just shoot me an email.

@@ -12,27 +12,22 @@ theme = "typo"
 [params]
   description = "High School Developer · Python · C++ · Java"
 
-  # Homepage intro
-  homeIntroTitle = "Hello 👋🏾"
+  homeIntroTitle = "Hi, I'm Tej."
   homeIntroContent = """
-Junior at Wakeland High School, class of 2027. I write code in Python, C++,
-and Java, and I'm building toward a future in computer science.
-
-Outside of school I spend my free time training boxing and Muay Thai,
-reading, listening to music, and eating good food.
+I'm a high schooler who loves building stuff and actually shipping it —
+trading systems in Python, mobile apps, AI tools, whatever grabs me. I like
+taking an idea all the way to something that runs, then writing about what
+broke on the way there. 😁
 """
 
-  # Homepage collection (list of posts under the intro)
   homeCollection = "posts"
   homeCollectionTitle = "Posts"
   paginationSize = 5
 
-  # Lists
   listSummaries = true
   listDateFormat = "2 Jan 2006"
   singleDateFormat = "2 January 2006"
 
-  # Breadcrumbs on inner pages (theme expects a table, not a bool)
   [params.breadcrumbs]
     enabled = true
     home = "home"
@@ -46,7 +41,6 @@ reading, listening to music, and eating good food.
   name = "linkedin"
   url = "https://www.linkedin.com/in/tejkaranam"
 
-# The typo theme reads its nav from params.menu (not Hugo's menus system)
 [[params.menu]]
   name = "about"
   url = "/about"
