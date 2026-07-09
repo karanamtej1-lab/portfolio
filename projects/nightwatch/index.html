@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<link rel="icon" type="image/ico" href="https://karanamtej1-lab.github.io/portfolio/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://karanamtej1-lab.github.io/portfolio/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://karanamtej1-lab.github.io/portfolio/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://karanamtej1-lab.github.io/portfolio/android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://karanamtej1-lab.github.io/portfolio/apple-touch-icon.png">
+
+<meta name="description" content=""/>
+
+
+
+<title>
+    
+    Nightwatch | Tej Karanam
+    
+</title>
+
+<link rel="canonical" href="https://karanamtej1-lab.github.io/portfolio/projects/nightwatch/"/>
+
+<meta property="og:url" content="https://karanamtej1-lab.github.io/portfolio/projects/nightwatch/">
+  <meta property="og:site_name" content="Tej Karanam">
+  <meta property="og:title" content="Nightwatch">
+  <meta property="og:description" content="A time tracker built to stay accurate even when you tab away.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-05-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-10T00:00:00+00:00">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/portfolio/assets/combined.min.aa87ff9a6b4dadd5724b522549f17e977befd870bc47b2448639226cd23f5cf5.css" media="all">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+</head>
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">
+        <a href="https://karanamtej1-lab.github.io/portfolio/">Tej Karanam</a>
+    </h1>
+
+    <div class="header-menu">
+        
+
+        
+        
+
+        <p
+            class="small ">
+            <a href="/about" >
+                /about
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/projects" >
+                /projects
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/posts" >
+                /posts
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+<div class="breadcrumbs"><a href="/portfolio/">home</a><span class="breadcrumbs-separator">/</span><a href="/portfolio/projects/">Projects</a><span class="breadcrumbs-separator">/</span>
+        <a href="/portfolio/projects/nightwatch/">Nightwatch</a></div>
+
+
+<div>
+  <article>
+    <header class="single-intro-container">
+      <h1 class="single-title">Nightwatch</h1>
+      <p class="single-summary">A time tracker built to stay accurate even when you tab away.</p>
+      <div class="single-subsummary">
+        <div>
+          <p class="single-date">
+            <time datetime="2026-05-10T00:00:00&#43;00:00">10 May 2026</time>
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="single-content">
+      <h2 class="heading" id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h2>
+<p>Nightwatch is a time tracker. Timed sessions, streaks, and enough pressure to
+finish what you start.</p>
+<h2 class="heading" id="the-problem">
+  The problem
+  <a class="anchor" href="#the-problem">#</a>
+</h2>
+<p>Most timers assume the tab stays in front of you the whole session. The
+assumption breaks the second someone checks a message and returns. Nightwatch
+keeps the real elapsed time across the interruption. More than a moving number
+on screen.</p>
+<h2 class="heading" id="how-it-works">
+  How it works
+  <a class="anchor" href="#how-it-works">#</a>
+</h2>
+<ul>
+<li>Sessions anchor to a saved end-timestamp, not a tick counter. The countdown
+comes from the wall clock, not from how many timer callbacks fired.</li>
+<li>A <code>visibilitychange</code> listener re-syncs state the instant a hidden tab
+returns. The UI reads correct on the first visible frame.</li>
+<li>Streaks and history sit on top. The timer earned trust first.</li>
+</ul>
+<h2 class="heading" id="what-i-learned">
+  What I learned
+  <a class="anchor" href="#what-i-learned">#</a>
+</h2>
+<p>My favorite bug lived here. Sessions ended minutes late, but only for some
+users, and never while I watched. Browsers throttle <code>requestAnimationFrame</code> and
+<code>setTimeout</code> in hidden tabs to save battery. My &ldquo;one tick per second&rdquo; countdown
+became &ldquo;one tick whenever the browser wants&rdquo; the moment a tab dropped to the
+background. Full story: <a href="/posts/nightwatch-hidden-tab-bug/">the hidden-tab bug
+post</a>.</p>
+<h2 class="heading" id="status">
+  Status
+  <a class="anchor" href="#status">#</a>
+</h2>
+<p>Personal project. Part of my daily routine.</p>
+
+    </div>
+
+    
+    <div class="project-stack">
+      <span class="project-stack-label">Stack</span>
+      <ul class="stack-tags">
+        <li>JavaScript</li>
+        <li>Page Visibility API</li>
+        <li>setTimeout / rAF</li>
+      </ul>
+    </div>
+
+    
+  </article>
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flexnowrap">
+
+        <div class="single-pagination-prev">
+            
+            <div class="single-pagination-container-prev">
+                <div class="single-pagination-text">←</div>
+                <div class="single-pagination-text">
+                    <a href="/portfolio/projects/automated-trading-system/">
+                        Automated Trading System
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+            <div class="single-pagination-container-next">
+                <div class="single-pagination-text">
+                    <a href="/portfolio/projects/recut/">
+                        Recut
+                    </a>
+                </div>
+                <div class="single-pagination-text">→</div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">back to top</a>
+  </div>
+  
+</div>
+
+
+    </main>
+  </div>
+
+  
+  
+
+
+
+
+
+    
+
+
+
+
+  <footer>
+    
+
+    
+    
+
+
+
+
+
+    
+
+
+
+
+    
+    <p>Powered by
+        <a href="https://gohugo.io/">Hugo</a>
+        and
+        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+    </p>
+    
+    
+    
+
+
+  </footer>
+
+  
+</body>
+
+<script defer src="/portfolio/js/copy-code.js"></script>
+</html>

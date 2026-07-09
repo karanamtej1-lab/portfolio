@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<link rel="icon" type="image/ico" href="https://karanamtej1-lab.github.io/portfolio/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://karanamtej1-lab.github.io/portfolio/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://karanamtej1-lab.github.io/portfolio/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://karanamtej1-lab.github.io/portfolio/android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://karanamtej1-lab.github.io/portfolio/apple-touch-icon.png">
+
+<meta name="description" content=""/>
+
+
+
+<title>
+    
+    The Nightwatch bug you only saw when you weren&#39;t looking | Tej Karanam
+    
+</title>
+
+<link rel="canonical" href="https://karanamtej1-lab.github.io/portfolio/posts/nightwatch-hidden-tab-bug/"/>
+
+<meta property="og:url" content="https://karanamtej1-lab.github.io/portfolio/posts/nightwatch-hidden-tab-bug/">
+  <meta property="og:site_name" content="Tej Karanam">
+  <meta property="og:title" content="The Nightwatch bug you only saw when you weren&#39;t looking">
+  <meta property="og:description" content="The session timer drifted, but only for some people, and never while I debugged. Hidden tabs were the cause.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-06-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-20T00:00:00+00:00">
+    <meta property="article:tag" content="Debugging">
+    <meta property="article:tag" content="Javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/portfolio/assets/combined.min.aa87ff9a6b4dadd5724b522549f17e977befd870bc47b2448639226cd23f5cf5.css" media="all">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+</head>
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">
+        <a href="https://karanamtej1-lab.github.io/portfolio/">Tej Karanam</a>
+    </h1>
+
+    <div class="header-menu">
+        
+
+        
+        
+
+        <p
+            class="small ">
+            <a href="/about" >
+                /about
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/projects" >
+                /projects
+            </a>
+        </p>
+        
+
+        <p
+            class="small ">
+            <a href="/posts" >
+                /posts
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+
+<div class="breadcrumbs"><a href="/portfolio/">home</a><span class="breadcrumbs-separator">/</span><a href="/portfolio/posts/">Posts</a><span class="breadcrumbs-separator">/</span>
+        <a href="/portfolio/posts/nightwatch-hidden-tab-bug/">The Nightwatch bug you only saw when you weren&#39;t looking</a></div>
+
+
+<div >
+  <article>
+    <header class="single-intro-container">
+        
+        <h1 class="single-title">The Nightwatch bug you only saw when you weren&#39;t looking</h1>
+        <p class="single-summary">The session timer drifted, but only for some people, and never while I debugged. Hidden tabs were the cause.</p>
+        
+        <div class="single-subsummary">
+          
+          <div>
+            
+            <p class="single-date">
+              <time datetime="2026-06-20T00:00:00&#43;00:00">20 June 2026</time>
+            </p>
+          </div>
+        </div>
+        
+    </header>
+    
+    <div class="single-content">
+      <p>Nightwatch&rsquo;s session timer had a bug I failed to reproduce for a week. Sessions
+ended late, sometimes minutes late, but only for some users. Never while I
+watched.</p>
+<p>The &ldquo;never while I watched&rdquo; detail was the whole bug.</p>
+<h2 class="heading" id="the-setup">
+  The setup
+  <a class="anchor" href="#the-setup">#</a>
+</h2>
+<p>The timer UI updated with <code>requestAnimationFrame</code>. The countdown ran on chained
+<code>setTimeout</code> ticks. Clean, smooth, passed every test. Every test shared one
+trait. The tab sat in front of me.</p>
+<h2 class="heading" id="what-browsers-do-in-the-background">
+  What browsers do in the background
+  <a class="anchor" href="#what-browsers-do-in-the-background">#</a>
+</h2>
+<p>A hidden tab triggers battery savings:</p>
+<ul>
+<li><code>requestAnimationFrame</code> stops firing. The API ties to paint, and hidden tabs
+do not paint.</li>
+<li><code>setTimeout</code> and <code>setInterval</code> throttle. Once per second at first. Less the
+longer the tab stays hidden.</li>
+</ul>
+<p>So the moment a user switched tabs mid-session, my &ldquo;one tick per second&rdquo;
+countdown became &ldquo;one tick whenever the browser wants.&rdquo; The UI froze. Nobody
+watches a hidden tab, so the freeze stayed invisible. The drift piled up until
+they returned.</p>
+<h2 class="heading" id="the-fix">
+  The fix
+  <a class="anchor" href="#the-fix">#</a>
+</h2>
+<p>Two changes. Both plain. Both defaults for me now.</p>
+<ol>
+<li>Never count time by counting ticks. Save the end timestamp once. On every
+tick, compute <code>remaining = endTime - Date.now()</code>. Ticks throttle. The wall
+clock does not.</li>
+<li>Re-sync on visibility change. A <code>visibilitychange</code> listener recomputes state
+the instant the tab returns. The UI reads correct on the first visible
+frame.</li>
+</ol>
+<h2 class="heading" id="the-lesson">
+  The lesson
+  <a class="anchor" href="#the-lesson">#</a>
+</h2>
+<p>Your code counts on callbacks firing on schedule. The browser treats the
+schedule as a suggestion. Anchor anything time-critical to timestamps. Give
+anything visual a &ldquo;you came back&rdquo; path. A bug hidden under observation is
+usually <code>document.hidden === true</code>.</p>
+
+    </div>
+  </article>
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </main>
+  </div>
+
+  
+  
+
+
+
+
+
+    
+
+
+
+
+  <footer>
+    
+
+    
+    
+
+
+
+
+
+    
+
+
+
+
+    
+    <p>Powered by
+        <a href="https://gohugo.io/">Hugo</a>
+        and
+        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+    </p>
+    
+    
+    
+
+
+  </footer>
+
+  
+</body>
+
+<script defer src="/portfolio/js/copy-code.js"></script>
+</html>
