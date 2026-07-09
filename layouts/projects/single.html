@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+{{ if not .IsHome }}
+{{ partial "breadcrumbs.html" . }}
+{{ end }}
+
+<div>
+  <article>
+    <header class="single-intro-container">
+      <h1 class="single-title">{{ .Title }}</h1>
+      {{- with .Param "summary" }}
+      <p class="single-summary">{{ . | markdownify }}</p>
+      {{- end }}
+
+      {{- with .Date }}
+      <div class="single-subsummary">
+        <div>
+          <p class="single-date">
+            {{- $dateMachine := . | time.Format "2006-01-02T15:04:05-07:00" }}
+            {{- $dateHuman := . | time.Format (default ":date_long" $.Site.Params.singleDateFormat) }}
+            <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+          </p>
+        </div>
+      </div>
+      {{- end }}
+    </header>
+
+    <div class="single-content">
+      {{ .Content }}
+    </div>
+
+    {{/* Tech stack — rendered as pills at the bottom of each project */}}
+    {{- with .Param "stack" }}
+    <div class="project-stack">
+      <span class="project-stack-label">Stack</span>
+      <ul class="stack-tags">
+        {{- range . }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{/* Optional external links (repo, live demo) */}}
+    {{- with .Param "links" }}
+    <div class="project-links">
+      {{- range . }}
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }} →</a>
+      {{- end }}
+    </div>
+    {{- end }}
+  </article>
+
+  {{ if not (.Param "hidePagination") }}
+  {{ partial "pagination-single.html" . }}
+  {{ end }}
+
+  {{ if not (.Param "hideBackToTop") }}
+  <div class="back-to-top">
+    <a href="#top">back to top</a>
+  </div>
+  {{ end }}
+</div>
+
+{{ end }}

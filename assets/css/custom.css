@@ -1,0 +1,108 @@
+/* Experience section (site-level addition; theme variables for colors) */
+
+.experience {
+  margin-top: 2.5rem;
+}
+
+.experience-entry {
+  margin-bottom: 1.5rem;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.experience-role {
+  font-weight: 700;
+  margin: 0;
+}
+
+.experience-period {
+  margin: 0;
+  font-size: 0.85em;
+  color: var(--content-secondary, #888);
+  white-space: nowrap;
+}
+
+.experience-org {
+  margin: 0.1rem 0 0.25rem;
+  font-size: 0.9em;
+  color: var(--content-secondary, #888);
+}
+
+.experience-summary {
+  margin: 0;
+  font-size: 0.95em;
+}
+
+/* Project images — cap height so tall phone screenshots don't dominate */
+.single-content img {
+  max-width: 100%;
+  max-height: 520px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto 0.4rem;
+  border-radius: 6px;
+}
+
+/* Image caption (markdown title text renders via figure/figcaption or alt) */
+.single-content figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.single-content figcaption {
+  font-size: 0.82em;
+  color: var(--content-secondary, #888);
+  margin-top: 0.3rem;
+}
+
+/* Tech stack — pill row at the bottom of each project */
+.project-stack {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--content-secondary, #888);
+}
+
+.project-stack-label {
+  display: block;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--content-secondary, #888);
+  margin-bottom: 0.6rem;
+}
+
+.stack-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stack-tags li {
+  font-size: 0.85em;
+  line-height: 1;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--content-secondary, #888);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.project-links {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.project-links a {
+  font-size: 0.9em;
+}

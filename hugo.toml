@@ -1,0 +1,60 @@
+baseURL = "https://karanamtej1-lab.github.io/"
+locale = "en-us"
+title = "Tej Karanam"
+theme = "typo"
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  description = "High School Developer · Python · C++ · Java"
+
+  # Homepage intro
+  homeIntroTitle = "Hello 👋🏾"
+  homeIntroContent = """
+Junior at Wakeland High School, class of 2027. I write code in Python, C++,
+and Java, and I'm building toward a future in computer science.
+
+Outside of school I spend my free time training boxing and Muay Thai,
+reading, listening to music, and eating good food.
+"""
+
+  # Homepage collection (list of posts under the intro)
+  homeCollection = "posts"
+  homeCollectionTitle = "Posts"
+  paginationSize = 5
+
+  # Lists
+  listSummaries = true
+  listDateFormat = "2 Jan 2006"
+  singleDateFormat = "2 January 2006"
+
+  # Breadcrumbs on inner pages (theme expects a table, not a bool)
+  [params.breadcrumbs]
+    enabled = true
+    home = "home"
+    showCurrentPage = true
+
+[[params.social]]
+  name = "github"
+  url = "https://github.com/TejKaranam101"
+
+[[params.social]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/tejkaranam"
+
+# The typo theme reads its nav from params.menu (not Hugo's menus system)
+[[params.menu]]
+  name = "about"
+  url = "/about"
+
+[[params.menu]]
+  name = "projects"
+  url = "/projects"
+
+[[params.menu]]
+  name = "posts"
+  url = "/posts"
