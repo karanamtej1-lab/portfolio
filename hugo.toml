@@ -14,10 +14,9 @@ theme = "typo"
 
   homeIntroTitle = "Hi, I'm Tej."
   homeIntroContent = """
-I'm a high schooler who loves building stuff and actually shipping it —
-trading systems in Python, mobile apps, AI tools, whatever grabs me. I like
-taking an idea all the way to something that runs, then writing about what
-broke on the way there. 😁
+I'm a high schooler who builds software and ships real projects. Trading
+systems in Python. Mobile apps. AI tools. I take an idea to a working product,
+then write about what broke.
 """
 
   homeCollection = "posts"

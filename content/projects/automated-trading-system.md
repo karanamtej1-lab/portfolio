@@ -1,7 +1,7 @@
 ---
 title: "Automated Trading System"
 date: 2026-02-15
-summary: "Python system that backtests strategies and paper-trades them live."
+summary: "A Python system to backtest strategies and paper-trade them live."
 tags: ["python", "finance"]
 stack: ["Python", "pandas", "Broker API", "Backtesting engine"]
 ---
@@ -10,37 +10,35 @@ stack: ["Python", "pandas", "Broker API", "Backtesting engine"]
 
 ## Overview
 
-A Python system that takes a trading strategy from idea all the way to (paper)
-execution: it pulls in historical data, runs a backtest with realistic fills
-and fees, and has a live paper-trading mode against real market data.
+A Python system takes a trading strategy from idea to paper execution. The
+system pulls historical data, runs a backtest with realistic fills and fees,
+and paper-trades live against real market data.
 
 ## The problem
 
 Most first-attempt backtests lie to you. They fill every order instantly at
-the exact price you wanted, ignore fees, and let you accidentally peek at
-future data. A backtest that's too optimistic is worse than no backtest — it
-hands you false confidence right before you put real money on the line.
+your exact price. They ignore fees. They let you peek at future data by
+accident. An over-optimistic backtest is worse than none. A rosy backtest hands
+you false confidence right before you risk real money.
 
 ## How it works
 
-- Historical data gets pulled in and cleaned up once, so every strategy run
-  starts from the same source.
-- The backtest engine fakes realistic fills (slippage, partial fills) and fees
-  instead of assuming everything's perfect.
-- A separate live paper-trading mode runs the *same* strategy code against a
-  broker's paper account, so the backtest and the live run are provably the
-  same logic — not two versions that quietly drift apart.
+- Historical data loads and cleans once. Every strategy run starts from the
+  same source.
+- The backtest engine models realistic fills: slippage, partial fills, and
+  fees. No perfect execution.
+- A live paper-trading mode runs the same strategy code against a broker's
+  paper account. Backtest and live share one logic, not two versions with
+  drift.
 
 ## What I learned
 
-The backtest was the easy part. Everything hard lived in the gap between
-backtest and live: real data shows up with delays the backtest doesn't model,
-real orders fill partially in ways a sim glosses over, and the biggest risk
-wasn't a bad strategy — it was me wanting to "just tweak one parameter" after
-a bad day. Keeping backtest and live on one shared code path killed a whole
-category of that self-deception, because there was nothing left to secretly
-change.
+The backtest was the easy part. The gap between backtest and live held every
+hard problem. Real data arrives with delays the backtest ignores. Real orders
+fill partially in ways a sim skips. The biggest risk was me wanting to tweak
+one parameter after a bad day. One shared code path removed the risk. Nothing
+was left to change in secret.
 
 ## Status
 
-Personal project, paper-trading only.
+Personal project. Paper trading only.

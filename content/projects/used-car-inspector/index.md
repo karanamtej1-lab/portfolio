@@ -1,54 +1,48 @@
 ---
 title: "Used-Car Inspector"
 date: 2026-07-02
-summary: "An AI condition report for a used car listing — flags with evidence, a price verdict against real comps, and the questions to ask before you buy."
+summary: "An AI condition report for a used-car listing. Flags with evidence, a price verdict against real comps, and the questions to ask before you buy."
 tags: ["nextjs", "ai", "react"]
 stack: ["Next.js (App Router)", "React", "Vision LLM API", "Hand-written CSS", "PWA"]
 ---
 
 ## Overview
 
-Buying a used car from a private seller means trusting someone who knows
-exactly what's wrong with it and has zero reason to tell you. Used-Car
-Inspector closes that gap. Upload the listing photos and you get condition
-flags with actual evidence (not just a confidence number), a fair-price range
-backed by real comparable listings, and the specific questions to ask the
-seller.
+Buy a used car from a private seller and you trust someone who knows the flaws
+and has no reason to share them. Used-Car Inspector closes the gap. Upload the
+listing photos. Get condition flags with evidence, not a bare confidence
+number. Get a fair-price range from real comparable listings. Get the exact
+questions to ask the seller.
 
-![Home screen — condition score, quick actions, recent inspections](used-car-inspector-home.png "Home dashboard")
+![Home screen, condition score, quick actions, recent inspections](used-car-inspector-home.png "Home dashboard")
 
 ## The core problem
 
-Most "AI inspection" demos just spit out a percentage and call it a day —
-"87% confidence: damage detected." That's not trustworthy, it just sounds
-confident. If the model can't point at *why* it thinks something's wrong, the
-number is decoration. So the whole rule became: every claim has to show its
-work.
+Most AI inspection demos print a percentage and stop. "87% confidence: damage
+detected." A number with no evidence is decoration. So I set one rule. Every
+claim shows evidence.
 
-![A real report — condition flags with cited evidence and a price verdict against comps](used-car-inspector-report.png "Condition report with evidence")
+![A real report, condition flags with cited evidence and a price verdict against comps](used-car-inspector-report.png "Condition report with evidence")
 
 ## How it works
 
-- **Two AI calls, not one black box.** A vision pass reads the photos against
-  a fixed checklist (rust, panel misalignment, tire wear, warning lights,
-  interior wear) and has to say "not assessable" instead of guessing when a
-  photo doesn't show something clearly. A second pass takes those flags plus
-  real comps and works out the price — it can't make up a number with no
-  comps behind it.
-- **The condition score is a formula, not a model output.** Starts at 100,
-  subtracts a fixed amount per flag based on confidence. The math is right
-  there on every report. No mystery score.
-- **Local-first.** Inspections save to your browser, not a server. No account,
-  nothing to leak.
+- Two AI calls, each with a clear job. A vision pass reads the photos against a
+  fixed checklist: rust, panel misalignment, tire wear, warning lights,
+  interior wear. The pass flags "not assessable" instead of guessing when a
+  photo stays unclear. A second pass takes the flags plus real comps and sets
+  the price. No comps, no number.
+- The condition score is a formula, not a model output. Start at 100. Subtract
+  a fixed amount per flag by confidence. The math shows on every report.
+- Local-first. Inspections save to your browser, not a server. No account.
+  Nothing to leak.
 
 ## What I learned
 
-The hard part wasn't the AI call — it was getting the AI to say "I don't
-know." Models love to sound confident, so getting the vision pass to reliably
-flag "not assessable" on a blurry or weird-angle photo took a bunch of prompt
-tightening and a validation step on the output before I trusted it enough to
-ship.
+The hard part was making the AI say "I don't know." Models default to confident
+answers. Getting the vision pass to flag "not assessable" on a blurry or
+bad-angle photo took rounds of prompt tightening and a validation step on the
+output.
 
 ## Status
 
-Actively developed. Source is private for now.
+In active development. Source stays private for now.

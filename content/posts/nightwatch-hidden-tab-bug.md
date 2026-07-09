@@ -1,51 +1,50 @@
 ---
-title: "The Nightwatch bug that only showed up when you weren't looking"
+title: "The Nightwatch bug you only saw when you weren't looking"
 date: 2026-06-20
-summary: "The session timer kept drifting — but only for some people, and never while I was debugging. Turned out hidden tabs were the whole story."
+summary: "The session timer drifted, but only for some people, and never while I debugged. Hidden tabs were the cause."
 tags: ["debugging", "javascript"]
 ---
 
-Nightwatch's session timer had a bug I couldn't reproduce for a week. Sessions
-were ending late — sometimes *minutes* late — but only for some users, and
-never, ever while I was watching.
+Nightwatch's session timer had a bug I failed to reproduce for a week. Sessions
+ended late, sometimes minutes late, but only for some users. Never while I
+watched.
 
-That last part turned out to be the whole bug.
+The "never while I watched" detail was the whole bug.
 
 ## The setup
 
-The timer UI updated with `requestAnimationFrame`, and the countdown ran on
-chained `setTimeout` ticks. Clean, smooth, passed every test. But all my tests
-had one thing in common: the tab was right in front of me.
+The timer UI updated with `requestAnimationFrame`. The countdown ran on chained
+`setTimeout` ticks. Clean, smooth, passed every test. Every test shared one
+trait. The tab sat in front of me.
 
-## What browsers do behind your back
+## What browsers do in the background
 
-When a tab is hidden, browsers get aggressive about saving battery:
+A hidden tab triggers battery savings:
 
-- `requestAnimationFrame` **stops firing completely** — it's tied to painting,
-  and hidden tabs don't paint.
-- `setTimeout` / `setInterval` get **throttled** — down to once a second at
-  first, and way less the longer the tab stays backgrounded.
+- `requestAnimationFrame` stops firing. The API ties to paint, and hidden tabs
+  do not paint.
+- `setTimeout` and `setInterval` throttle. Once per second at first. Less the
+  longer the tab stays hidden.
 
-So the moment someone switched tabs mid-session, my "one tick per second"
-countdown quietly turned into "one tick whenever the browser feels like it."
-The UI froze — invisibly, since nobody's staring at a hidden tab — and the
-drift piled up until they came back.
+So the moment a user switched tabs mid-session, my "one tick per second"
+countdown became "one tick whenever the browser wants." The UI froze. Nobody
+watches a hidden tab, so the freeze stayed invisible. The drift piled up until
+they returned.
 
 ## The fix
 
-Two changes, both boring, both things I just do by default now:
+Two changes. Both plain. Both defaults for me now.
 
-1. **Never count time by counting ticks.** Save the session's end timestamp
-   once, and on every tick compute `remaining = endTime - Date.now()`. Ticks
-   can be throttled; the wall clock can't.
-2. **Re-sync on visibility change.** A `visibilitychange` listener recomputes
-   everything the instant the tab comes back, so the UI is correct on the very
-   first visible frame — no waiting around for the next tick.
+1. Never count time by counting ticks. Save the end timestamp once. On every
+   tick, compute `remaining = endTime - Date.now()`. Ticks throttle. The wall
+   clock does not.
+2. Re-sync on visibility change. A `visibilitychange` listener recomputes state
+   the instant the tab returns. The UI reads correct on the first visible
+   frame.
 
 ## The lesson
 
-If your code counts on callbacks firing on schedule, the browser treats that
-as a suggestion, not a promise. Anything time-critical should be anchored to
-timestamps, and anything visual needs a "hey, you're back" path. Bugs that
-vanish when you look at them aren't spooky — usually it's just
-`document.hidden === true`. 😁
+Your code counts on callbacks firing on schedule. The browser treats the
+schedule as a suggestion. Anchor anything time-critical to timestamps. Give
+anything visual a "you came back" path. A bug hidden under observation is
+usually `document.hidden === true`.

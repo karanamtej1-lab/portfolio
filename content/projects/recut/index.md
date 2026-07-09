@@ -1,39 +1,36 @@
 ---
 title: "Recut"
 date: 2026-06-01
-summary: "A mobile app for remixing viral Instagram/TikTok video templates — browse trending formats, drop in your own clips, export."
+summary: "A mobile app for remixing viral Instagram and TikTok video templates. Browse trending formats, drop in your clips, export."
 tags: ["react-native", "expo", "mobile"]
 stack: ["React Native", "Expo (SDK 56)", "Expo Router", "Node.js", "FFmpeg", "AsyncStorage"]
 ---
 
 ## Overview
 
-Recut lets you remix trending short-form video formats without touching a real
-editor. Browse the formats blowing up right now — "Day In My Life,"
-multi-clip transition edits — pick one, drop in your own clips, and export.
+Recut lets you remix trending short-form video formats without a real editor.
+Browse the formats blowing up right now, like "Day In My Life" or multi-clip
+transition edits. Pick one. Drop in your clips. Export.
 
-![Discover screen — trending templates by category](recut-app.png "Recut's Discover screen")
+![Discover screen, trending templates by category](recut-app.png "Recut's Discover screen")
 
 ## How it works
 
-- **React Native + Expo** for the app and camera/media access, so one
-  codebase runs on iOS, Android, and web.
-- **A Node + FFmpeg server** does the actual video work — stitching clips to
-  a template's timing, transitions, and audio sync. That's real video
-  processing, not something you fake in a WebView.
-- Templates are grouped by category (Trending, Travel, Fitness, Food,
-  Fashion) with engagement counts, so browsing feels like scrolling a feed
-  instead of picking files.
+- React Native and Expo run the app and handle camera and media access. One
+  codebase ships to iOS, Android, and web.
+- A Node and FFmpeg server does the video work. The server stitches clips to a
+  template's timing, transitions, and audio sync. Real video processing, not a
+  WebView trick.
+- Templates group by category: Trending, Travel, Fitness, Food, Fashion. Each
+  shows engagement counts, so browsing feels like a feed, not a file picker.
 
 ## What I learned
 
-FFmpeg in a managed hosting environment is way more fragile than it looks. The
-build that ships in some Node images is missing codecs the audio/video sync
-depends on, so rendering would randomly break. The fix was being explicit
-about exactly which FFmpeg build the server runs instead of trusting whatever
-the platform hands you. It also locked in the architecture: render on the
-server, never in the client — mobile WebViews just can't do frame-accurate
-video.
+FFmpeg in a managed host is fragile. The build in some Node images drops codecs
+the audio and video sync needs, so rendering broke at random. The fix: pin the
+exact FFmpeg build the server runs. Do not trust the platform default. The
+lesson set the architecture. Render on the server, never in the client. Mobile
+WebViews fail at frame-accurate video.
 
 ## Status
 

@@ -1,7 +1,7 @@
 ---
 title: "Workflow Automation Tool"
 date: 2026-01-20
-summary: "Glue code, promoted: a tool that chains the repetitive steps I kept doing by hand."
+summary: "A small tool to chain the repetitive steps I kept doing by hand."
 tags: ["python", "automation"]
 stack: ["Python", "YAML workflow specs", "Run-history store"]
 ---
@@ -10,34 +10,31 @@ stack: ["Python", "YAML workflow specs", "Run-history store"]
 
 ## Overview
 
-Started as three scripts and a cron job. Turned into a small tool that chains
-repetitive steps — fetch, transform, notify — into workflows I define once, so
-I stop doing them by hand every time something changes.
+This began as three scripts and a cron job. Now a small tool chains repetitive
+steps, fetch, transform, notify, into workflows I define once. I stop running
+them by hand every time something changes.
 
 ## The problem
 
-Each of the three original scripts logged things a little differently, handled
-failures a little differently, and shared zero history. When one quietly
-stopped working, I'd find out days later. The scripts weren't the problem —
-the lack of one shared, visible way to run them was.
+The three scripts logged differently and handled failures differently. They
+shared no history. When one broke, I found out days later. The scripts worked
+fine. The missing piece was one shared, visible way to run them.
 
 ## How it works
 
-- Workflows are written in YAML: a list of steps, each one a
-  fetch/transform/notify action, run in order.
-- Every run logs what ran, when, and how each step turned out — not just
-  pass/fail, so a partial failure is easy to trace without re-running
-  everything.
-- Failures actually tell you instead of dying quietly in a log nobody reads.
+- Workflows live in YAML. Each is a list of steps. Each step is a fetch,
+  transform, or notify action. They run in order.
+- Every run logs what ran, when, and how each step turned out. Not pass or fail
+  alone. A partial failure traces easily with no full rerun.
+- Failures tell you. They do not die in a log nobody reads.
 
 ## What I learned
 
-Automation you can't watch is automation you can't trust. The interesting work
-wasn't chaining steps together — that part's easy — it was building the "what
-ran, when, and why" view, which ended up being about half the project. A
-workflow that fails and tells you exactly which step and why beats one that
-rarely fails but goes silent when it does.
+You need to watch automation to trust automation. Chaining steps was easy. The
+real work was the "what ran, when, and why" view. The view took about half the
+project. A workflow which fails and names the step and reason beats one which
+rarely fails and goes silent.
 
 ## Status
 
-Personal project, I use it every day for my own recurring tasks.
+Personal project. Part of my daily routine.
