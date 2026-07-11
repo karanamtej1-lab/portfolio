@@ -1,66 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Home on Tej Karanam</title>
-		<link>https://karanamtej1-lab.github.io/portfolio/</link>
-		<description>Recent content in Home on Tej Karanam</description>
-		<generator>Hugo</generator>
-		<language>en-us</language>
-		
-		
-		
-		
-			<lastBuildDate>Thu, 02 Jul 2026 00:00:00 +0000</lastBuildDate>
-		
-			<atom:link href="https://karanamtej1-lab.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
-			<item>
-				<title>Used-Car Inspector</title>
-				<link>https://karanamtej1-lab.github.io/portfolio/projects/used-car-inspector/</link>
-				<pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
-				<guid>https://karanamtej1-lab.github.io/portfolio/projects/used-car-inspector/</guid>
-				<description>An AI condition report for a used-car listing. Flags with evidence, a price verdict against real comps, and the questions to ask before you buy.</description>
-			</item>
-			<item>
-				<title>The Nightwatch bug you only saw when you weren&#39;t looking</title>
-				<link>https://karanamtej1-lab.github.io/portfolio/posts/nightwatch-hidden-tab-bug/</link>
-				<pubDate>Sat, 20 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://karanamtej1-lab.github.io/portfolio/posts/nightwatch-hidden-tab-bug/</guid>
-				<description>The session timer drifted, but only for some people, and never while I debugged. Hidden tabs were the cause.</description>
-			</item>
-			<item>
-				<title>Recut</title>
-				<link>https://karanamtej1-lab.github.io/portfolio/projects/recut/</link>
-				<pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>https://karanamtej1-lab.github.io/portfolio/projects/recut/</guid>
-				<description>A mobile app for remixing viral Instagram and TikTok video templates. Browse trending formats, drop in your clips, export.</description>
-			</item>
-			<item>
-				<title>Nightwatch</title>
-				<link>https://karanamtej1-lab.github.io/portfolio/projects/nightwatch/</link>
-				<pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
-				<guid>https://karanamtej1-lab.github.io/portfolio/projects/nightwatch/</guid>
-				<description>A time tracker built to stay accurate even when you tab away.</description>
-			</item>
-			<item>
-				<title>Automated Trading System</title>
-				<link>https://karanamtej1-lab.github.io/portfolio/projects/automated-trading-system/</link>
-				<pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
-				<guid>https://karanamtej1-lab.github.io/portfolio/projects/automated-trading-system/</guid>
-				<description>A Python system to backtest strategies and paper-trade them live.</description>
-			</item>
-			<item>
-				<title>Workflow Automation Tool</title>
-				<link>https://karanamtej1-lab.github.io/portfolio/projects/workflow-automation-tool/</link>
-				<pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
-				<guid>https://karanamtej1-lab.github.io/portfolio/projects/workflow-automation-tool/</guid>
-				<description>A small tool to chain the repetitive steps I kept doing by hand.</description>
-			</item>
-			<item>
-				<title>About</title>
-				<link>https://karanamtej1-lab.github.io/portfolio/about/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://karanamtej1-lab.github.io/portfolio/about/</guid>
-				<description>&lt;p&gt;I&amp;rsquo;m Tej. A junior at Wakeland High School, class of 2027. I study computer&#xA;science and build software.&lt;/p&gt;&#xA;&lt;p&gt;I ship things people use. I learn what each project needs as I go. Python for&#xA;trading. C++ and Java for coursework and fundamentals. Lately, plenty of AI API&#xA;and pipeline work.&lt;/p&gt;&#xA;&lt;p&gt;Recent builds:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;An AI used-car inspector. Upload photos of a car listing. Get condition flags&#xA;with evidence, a price check against comparable listings, and the questions&#xA;to ask the seller.&lt;/li&gt;&#xA;&lt;li&gt;An automated trading system in Python. Backtest first. Paper trade second.&lt;/li&gt;&#xA;&lt;li&gt;Nightwatch, a time tracker. Read &lt;a href=&#34;https://karanamtej1-lab.github.io/portfolio/posts/nightwatch-hidden-tab-bug/&#34;&gt;the post about a Nightwatch&#xA;bug&lt;/a&gt; to see how I debug.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 class=&#34;heading&#34; id=&#34;outside-of-code&#34;&gt;&#xA;  Outside of code&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#outside-of-code&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Anime. My main way to wind down.&lt;/li&gt;&#xA;&lt;li&gt;Drawing. I sketch for fun.&lt;/li&gt;&#xA;&lt;li&gt;Instruments. Piano, guitar, viola, and trombone.&lt;/li&gt;&#xA;&lt;li&gt;The gym. My time off a screen.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 class=&#34;heading&#34; id=&#34;elsewhere&#34;&gt;&#xA;  Elsewhere&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#elsewhere&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Find me on &lt;a href=&#34;https://github.com/TejKaranam101&#34;&gt;GitHub&lt;/a&gt; or&#xA;&lt;a href=&#34;https://www.linkedin.com/in/tejkaranam&#34;&gt;LinkedIn&lt;/a&gt;. Email works too.&lt;/p&gt;</description>
-			</item>
-	</channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tej Karanam</title><link>https://karanamtej1-lab.github.io/portfolio/</link><description>Recent content in Home on Tej Karanam</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://karanamtej1-lab.github.io/portfolio/index.xml" rel="self" type="application/rss+xml"/><item><title>nanoGPT from Scratch</title><link>https://karanamtej1-lab.github.io/portfolio/projects/nanogpt/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0000</pubDate><guid>https://karanamtej1-lab.github.io/portfolio/projects/nanogpt/</guid><description>A character-level GPT built from the ground up in PyTorch. A bigram baseline, then the full Transformer, trained to write fake Shakespeare.</description></item><item><title>Used-Car Inspector</title><link>https://karanamtej1-lab.github.io/portfolio/projects/used-car-inspector/</link><pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate><guid>https://karanamtej1-lab.github.io/portfolio/projects/used-car-inspector/</guid><description>An AI condition report for a used-car listing. Flags with evidence, a price verdict against real comps, and the questions to ask before you buy.</description></item><item><title>The Nightwatch bug you only saw when you weren't looking</title><link>https://karanamtej1-lab.github.io/portfolio/posts/nightwatch-hidden-tab-bug/</link><pubDate>Sat, 20 Jun 2026 00:00:00 +0000</pubDate><guid>https://karanamtej1-lab.github.io/portfolio/posts/nightwatch-hidden-tab-bug/</guid><description>The session timer drifted, but only for some people, and never while I debugged. Hidden tabs were the cause.</description></item><item><title>Recut</title><link>https://karanamtej1-lab.github.io/portfolio/projects/recut/</link><pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate><guid>https://karanamtej1-lab.github.io/portfolio/projects/recut/</guid><description>A mobile app for remixing viral Instagram and TikTok video templates. Browse trending formats, drop in your clips, export.</description></item><item><title>Nightwatch</title><link>https://karanamtej1-lab.github.io/portfolio/projects/nightwatch/</link><pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate><guid>https://karanamtej1-lab.github.io/portfolio/projects/nightwatch/</guid><description>A time tracker built to stay accurate even when you tab away.</description></item><item><title>Automated Trading System</title><link>https://karanamtej1-lab.github.io/portfolio/projects/automated-trading-system/</link><pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate><guid>https://karanamtej1-lab.github.io/portfolio/projects/automated-trading-system/</guid><description>A Python system to backtest strategies and paper-trade them live.</description></item><item><title>Workflow Automation Tool</title><link>https://karanamtej1-lab.github.io/portfolio/projects/workflow-automation-tool/</link><pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate><guid>https://karanamtej1-lab.github.io/portfolio/projects/workflow-automation-tool/</guid><description>A small tool to chain the repetitive steps I kept doing by hand.</description></item><item><title>About</title><link>https://karanamtej1-lab.github.io/portfolio/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://karanamtej1-lab.github.io/portfolio/about/</guid><description>&lt;p&gt;I&amp;rsquo;m Tej. A junior at Wakeland High School, class of 2027. I study computer
+science and build software.&lt;/p&gt;
+&lt;p&gt;I ship things people use. I learn what each project needs as I go. Python for
+trading. C++ and Java for coursework and fundamentals. Lately, plenty of AI API
+and pipeline work.&lt;/p&gt;
+&lt;p&gt;Recent builds:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An AI used-car inspector. Upload photos of a car listing. Get condition flags
+with evidence, a price check against comparable listings, and the questions
+to ask the seller.&lt;/li&gt;
+&lt;li&gt;An automated trading system in Python. Backtest first. Paper trade second.&lt;/li&gt;
+&lt;li&gt;Nightwatch, a time tracker. Read &lt;a href="https://karanamtej1-lab.github.io/portfolio/posts/nightwatch-hidden-tab-bug/"&gt;the post about a Nightwatch
+bug&lt;/a&gt; to see how I debug.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="heading" id="outside-of-code"&gt;
+ Outside of code
+ &lt;a class="anchor" href="#outside-of-code"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Anime. My main way to wind down.&lt;/li&gt;
+&lt;li&gt;Drawing. I sketch for fun.&lt;/li&gt;
+&lt;li&gt;Instruments. Piano, guitar, viola, and trombone.&lt;/li&gt;
+&lt;li&gt;The gym. My time off a screen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="heading" id="elsewhere"&gt;
+ Elsewhere
+ &lt;a class="anchor" href="#elsewhere"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Find me on &lt;a href="https://github.com/TejKaranam101"&gt;GitHub&lt;/a&gt; or
+&lt;a href="https://www.linkedin.com/in/tejkaranam"&gt;LinkedIn&lt;/a&gt;. Email works too.&lt;/p&gt;</description></item></channel></rss>
